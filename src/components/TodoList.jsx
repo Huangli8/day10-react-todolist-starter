@@ -23,7 +23,7 @@ const TodoList = () => {
       <div>Todo List</div>
       {state.length === 0 ? (
         <div className="empty-image-box">
-          <img src="/img.jpg" alt="Empty" className="empty-image"/>
+          <img src="/img.jpg" className="empty-image"/>
           <div>暂无待办事项</div>
         </div>
       ) : (
