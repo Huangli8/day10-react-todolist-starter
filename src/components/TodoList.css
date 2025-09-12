@@ -9,3 +9,11 @@
 .todo-group {
     justify-self: center;
 }
+.empty-image-box {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .empty-image {
+    width: 120px;
+    opacity: 0.7;
+  }
