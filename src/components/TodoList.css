@@ -1,13 +1,38 @@
 .todo-item {
-    width: 200px;
-    border: 1px solid black;
-    padding: 5px;
-    &.done {
-        text-decoration: line-through;
-    }
+    width: 220px;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.todo-item.done {
+    text-decoration: line-through;
+    color: #aaa;
+    background: #f3f3f3;
 }
 .todo-group {
-    justify-self: center;
+    max-width: 400px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 32px 24px 24px;
+}
+.todo-group > div:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.todo-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* 让每行内容居中 */
+    margin-bottom: 16px;
 }
 .empty-image-box {
     text-align: center;
@@ -17,3 +42,52 @@
     width: 120px;
     opacity: 0.7;
   }
+
+  .del-btn {
+    background: #ff6363;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-left: 10px;
+}
+
+.del-btn:hover {
+    background: #e33;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 9px 12px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 12px;
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+input[type="text"]:focus {
+    border: 1.5px solid #8dcfff;
+    outline: none;
+}
+
+.add-btn {
+    background: #fff;
+    color: #1976d2;
+    border: 1.5px solid #1976d2;
+    border-radius: 4px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+
+.add-btn:hover {
+    background: #1976d2;
+    color: #fff;
+}

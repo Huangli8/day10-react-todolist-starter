@@ -29,14 +29,14 @@ const TodoList = () => {
       ) : (
         state.map(({ id, text, done }) => {
           return (
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className="todo-item-row" key={id}>
               <div
                 className={`todo-item ${done ? "done" : ""}`}
                 onClick={() => toggleDone(id)}
               >
                 {text}
               </div>
-              <button onClick={() => handleDelete(id)}>X</button>
+              <button className="del-btn" onClick={() => handleDelete(id)}>X</button>
             </div>
           );
         })
@@ -47,7 +47,7 @@ const TodoList = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         ></input>
-        <button onClick={handleAdd}>Add</button>
+        <button className="add-btn" onClick={handleAdd}>Add</button>
       </div>
     </div>
   );
