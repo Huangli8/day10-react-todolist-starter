@@ -15,6 +15,17 @@ export const todoReducer = (state, action) => {
         }
         return todo;
       });
+      case 'ADD':
+        return [
+          ...state,
+          {
+            id:Date.now(),
+            text:action.text,
+            done:false
+          }
+        ];
+      case 'DELETE':
+        return state.filter(todo => action.id !== todo.id);
     default:
       return state;
   }
