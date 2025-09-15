@@ -18,6 +18,7 @@ import {
   EditOutlined,
 } from "@ant-design/icons";
 import { addTodo, getTodos, updateTodo, deleteTodo } from "../apis/api";
+import { useNavigate } from "react-router"; 
 
 const { Text } = Typography;
 
@@ -30,6 +31,7 @@ const TodoList = () => {
   const [editValue, setEditValue] = useState(""); // 编辑框内容
   const [editId, setEditId] = useState(null); // 正在编辑的 todo id
 
+  const navigate = useNavigate();
   const handleEditSave = async () => {
     if (editValue.trim()) {
       await updateTodo(editId, { text: editValue.trim() });
@@ -85,7 +87,7 @@ const TodoList = () => {
         bordered={false}
         style={{
           maxWidth: 480,
-          margin: "40px auto",
+          margin: "20px auto",
           borderRadius: 16,
           boxShadow: "0 2px 12px #eee",
         }}
@@ -192,6 +194,9 @@ const TodoList = () => {
           onPressEnter={handleEditSave}
         />
       </Modal>
+      <Button color="cyan" variant="solid" onClick={() => navigate("/todos/done")}>
+        查看已完成事项
+      </Button>
     </div>
   );
 };

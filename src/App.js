@@ -6,13 +6,12 @@ import {
   Outlet,
   NavLink,
   RouterProvider,
-  useParams,
-  useLocation 
+  useLocation,
 } from "react-router";
-import { Menu,FloatButton } from "antd";
-import {
-  UpOutlined
-} from "@ant-design/icons";
+import { Menu, FloatButton } from "antd";
+import { UpOutlined } from "@ant-design/icons";
+
+import TodoDoneGenerator from "./components/TodoDoneGenerator";
 const items = [
   { label: <NavLink to="/">Home</NavLink>, key: "/" },
   { label: <NavLink to="/todos">Todo List</NavLink>, key: "/todos" },
@@ -64,6 +63,12 @@ const routes = [
         path: "todos/:id",
         element: <TodoDetail />,
       },
+      {
+        path: "todos/done",
+        element: (
+          <TodoDoneGenerator />
+        ),
+      },
     ],
   },
 ];
@@ -74,7 +79,11 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router}></RouterProvider>
-      <FloatButton onClick={() => console.log('onClick')} style={{right: 40, bottom: 60 }} icon={<UpOutlined />}/>
+      <FloatButton
+        onClick={() => console.log("onClick")}
+        style={{ right: 40, bottom: 60 }}
+        icon={<UpOutlined />}
+      />
     </div>
   );
 }
