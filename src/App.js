@@ -10,7 +10,7 @@ import {
 } from "react-router";
 import { Menu, FloatButton } from "antd";
 import { UpOutlined } from "@ant-design/icons";
-
+import ErrorPage from "./components/ErrorPage";
 import TodoDoneGenerator from "./components/TodoDoneGenerator";
 const items = [
   { label: <NavLink to="/">Home</NavLink>, key: "/" },
@@ -37,9 +37,6 @@ function DefaultLayout() {
   );
 }
 
-function ErrorPage() {
-  return <div>error page</div>;
-}
 
 const routes = [
   {
