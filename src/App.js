@@ -80,7 +80,7 @@ function App() {
     <div className="App">
       <RouterProvider router={router}></RouterProvider>
       <FloatButton
-        onClick={() => console.log("onClick")}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         style={{ right: 40, bottom: 60 }}
         icon={<UpOutlined />}
       />
