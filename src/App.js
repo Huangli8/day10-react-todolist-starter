@@ -7,29 +7,30 @@ import {
   NavLink,
   RouterProvider,
   useParams,
+  useLocation 
 } from "react-router";
-
+import { Menu,FloatButton } from "antd";
+import {
+  UpOutlined
+} from "@ant-design/icons";
+const items = [
+  { label: <NavLink to="/">Home</NavLink>, key: "/" },
+  { label: <NavLink to="/todos">Todo List</NavLink>, key: "/todos" },
+  { label: <NavLink to="/about">About</NavLink>, key: "/about" },
+];
 
 function DefaultLayout() {
+  const location = useLocation();
   return (
     <>
       <header>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to={"/"}>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/todos"}>Todo List</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/about"}>About</NavLink>
-            </li>
-          </ul>
-        </nav>
+        <Menu
+          mode="horizontal"
+          selectedKeys={[location.pathname]}
+          items={items}
+        />
       </header>
       <main>
-        <h1>xxx</h1>
         <Outlet></Outlet> {/* placeholder for child route components */}
       </main>
       <footer>footer copyright</footer>
@@ -40,7 +41,6 @@ function DefaultLayout() {
 function ErrorPage() {
   return <div>error page</div>;
 }
-
 
 const routes = [
   {
@@ -74,6 +74,7 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router}></RouterProvider>
+      <FloatButton onClick={() => console.log('onClick')} style={{right: 40, bottom: 60 }} icon={<UpOutlined />}/>
     </div>
   );
 }
