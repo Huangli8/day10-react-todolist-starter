@@ -13,3 +13,4 @@ const TodoListGenerator = () => {
       </TodoContext.Provider>
     );
 }
+export default TodoListGenerator;

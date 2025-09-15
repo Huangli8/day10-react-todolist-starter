@@ -18,14 +18,12 @@ export const todoReducer = (state, action) => {
       case 'ADD':
         return [
           ...state,
-          {
-            id:Date.now(),
-            text:action.text,
-            done:false
-          }
+          action.todo
         ];
       case 'DELETE':
         return state.filter(todo => action.id !== todo.id);
+      case 'LOAD_TODOS':
+        return action.todos;
     default:
       return state;
   }
