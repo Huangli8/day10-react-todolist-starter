@@ -16,7 +16,7 @@ const TodoDone = () => {
       dispatch({ type: "LOAD_TODOS", todos: res.data });
       setDoneTodos(res.data.filter((todo) => todo.done));
     });
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="todo-group">

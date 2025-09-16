@@ -16,9 +16,10 @@ import {
   DeleteOutlined,
   CheckCircleTwoTone,
   EditOutlined,
+  EyeOutlined
 } from "@ant-design/icons";
 import { addTodo, getTodos, updateTodo, deleteTodo } from "../apis/api";
-import { useNavigate } from "react-router"; 
+import { useNavigate } from "react-router";
 
 const { Text } = Typography;
 
@@ -156,6 +157,13 @@ const TodoList = () => {
 
                   <Button
                     type="text"
+                    icon={<EyeOutlined />}
+                    onClick={() => navigate(`/todos/${id}`)}
+                    style={{ marginRight: 8 }}
+                  />
+
+                  <Button
+                    type="text"
                     icon={<EditOutlined />}
                     onClick={() => {
                       setEditId(id); // 记录当前编辑项 id
@@ -194,7 +202,11 @@ const TodoList = () => {
           onPressEnter={handleEditSave}
         />
       </Modal>
-      <Button color="cyan" variant="solid" onClick={() => navigate("/todos/done")}>
+      <Button
+        color="cyan"
+        variant="solid"
+        onClick={() => navigate("/todos/done")}
+      >
         查看已完成事项
       </Button>
     </div>
